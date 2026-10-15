@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* Cores do tema: --primaria/--secundaria vêm da mercearia (ou do padrão Tá Feito) */
+:root {
+  --primaria: #16a34a;
+  --secundaria: #f59e0b;
+}
+
+@theme inline {
+  --color-primaria: var(--primaria);
+  --color-secundaria: var(--secundaria);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  @apply bg-stone-100 text-stone-900 antialiased;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@layer components {
+  .btn-primario {
+    @apply btn bg-primaria text-white shadow-sm hover:brightness-110;
+  }
+  .btn-secundario {
+    @apply btn border border-stone-300 bg-white text-stone-700 hover:bg-stone-50;
+  }
+  .btn-perigo {
+    @apply btn bg-red-600 text-white hover:bg-red-700;
+  }
+  .btn-sm {
+    @apply px-2.5 py-1 text-xs;
+  }
+  .campo {
+    @apply block w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm shadow-sm outline-none focus:border-primaria focus:ring-2 focus:ring-primaria/20;
+  }
+  .rotulo {
+    @apply mb-1 block text-xs font-medium text-stone-600;
+  }
+  .cartao {
+    @apply rounded-xl border border-stone-200 bg-white shadow-sm;
+  }
+  .tabela {
+    @apply w-full text-left text-sm;
+  }
+  .tabela th {
+    @apply border-b border-stone-200 bg-stone-50 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-stone-500;
+  }
+  .tabela td {
+    @apply border-b border-stone-100 px-3 py-2;
+  }
+  .tabela tr:last-child td {
+    @apply border-b-0;
+  }
+  .link {
+    @apply font-medium text-primaria hover:underline;
+  }
+}
